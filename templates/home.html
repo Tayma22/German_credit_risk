@@ -5,33 +5,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="static/home.css">
-  <title>mushroom classification</title>
+  <title>Accord Credit</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 
-
-<body> 
-
-    <div class="container">
-      
-    <section class="About">
-       <a href='/about'><button class="btn btn-abt">ABOUT</button></a>
-
-
-    </section>
-
-    <section class="prediction">
-        <a href='/webapp'><button class="btn btn-app">MUSHROOM CLASSIFICATION</button></a>
-
-    </section>
-
-    <section class="github">
-       <a href="https://github.com/codemonster94/mushroom_classifier"><button class="btn btn-git">GITHUB</button></a>
-    </section>
-
+<body>
+  <div class="container">
+    <p>Welcome to the credit decision support system. Click below to proceed.</p>
+    <a href='/webapp'><button class="btn btn-app">Prediction</button></a>
+    <a href="https://github.com/"><button class="btn btn-git">GITHUB</button></a>
   </div>
-
-
 </body>
 
 </html>

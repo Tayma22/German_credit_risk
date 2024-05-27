@@ -5,170 +5,171 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="static/home.css">
-  <title>mushroom classification</title>
-<style>
-fieldset {
-  background-color: #00000020;
-}
+  <title>Credit Application Form</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
 
-legend {
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 800px;
+      width: 100%;
+    }
 
+    h1 {
+      color: #000;
+      margin-bottom: 20px;
+    }
 
-  padding: 10px 10px;
+    .form-section {
+      display: flex;
+      justify-content: space-between;
+    }
 
+    .form-column {
+      width: 48%;
+      display: flex;
+      flex-direction: column;
+    }
 
-}
+    label {
+      margin: 10px 0 5px;
+      text-align: left;
+    }
 
+    input[type="text"],
+    input[type="number"] {
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: calc(100% - 16px);
+      box-sizing: border-box;
+    }
 
-</style>
+    select {
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: calc(100% - 16px);
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 
-
 <body>
-
-    <div class="container">
-
-    <section class=" About">
-
-        <a href='/about'><button class="btn btn-abt">ABOUT</button></a>
-
-    </section>
-
-    <section class="prediction">
-
-          <div class="content">
-            <h1 style="color:#000000"><b>Mushroom classifier</b></h1>
-
-            <br><br>
-            <form  action = "\predict" method="POST">
-                <fieldset>
-                <legend></legend>
-                    <br>
-                    <center>
-
-        <label>Gill color &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <select id="gill-color" name="gill-color"  required>
-          <option value="" selected disabled hidden> Select </option>
-
-            <option value="4">Black</option>
-            <option value="5">Brown</option>
-            <option value="0">Buff</option>
-            <option value="3">Chocolate</option>
-            <option value="2">Gray</option>
-            <option value="8">Green</option>
-            <option value="6">Orange</option>
-            <option value="7">Pink</option>
-            <option value="9">Purple</option>
-            <option value="1">Red</option>
-            <option value="10">White</option>
-            <option value="11">Yellow</option>
-        </select>
-        <br><br>
-
-        <label>Spore print color</label>
-          <select id="spore-print-color" name="spore-print-color">
-            <option value="">Select</option>
-            <option value="2">Black</option>
-            <option value="3">Brown</option>
-            <option value="4">Buff</option>
-            <option value="1">Chocolate</option>
-            <option value="5">Green</option>
-            <option value="8">Orange</option>
-            <option value="6">Purple</option>
-            <option value="7">White</option>
-            <option value="0">Yellow</option>
-
+  <div class="container">
+    <h1><b>Credit Application</b></h1>
+    <form action="/predict" method="post">
+      <div class="form-section">
+        <div class="form-column">
+          <label for="duration">Duration (months):</label>
+          <input type="number" id="duration" name="duration" required>
+          
+          <label for="credit_history">Credit History:</label>
+          <select id="credit_history" name="credit_history" required>
+            <option value="" selected disabled>Select Credit History</option>
+            <option value="A30">no credits taken/all credits paid back duly</option>
+            <option value="A31">all credits at this bank paid back duly</option>
+            <option value="A32">existing credits paid back duly till now</option>
+            <option value="A33">delay in paying off in the past</option>
+            <option value="A34">critical account/other credits elsewhere</option>
           </select>
-        <br><br>
-
-        <label>population&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <select id="population" name="population"  required>
-          <option value="" selected disabled hidden> Select </option>
-
-            <option value="0">abundant</option>
-            <option value="1">clustered</option>
-            <option value="2">numerous</option>
-            <option value="3">scattered</option>
-            <option value="4">several</option>
-            <option value="5">solitary</option>
-
-        </select>
-        <br><br>
-
-        <label>Gill size  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <select id="gill-size" name="gill-size"  required>
-          <option value="" selected disabled hidden>Select&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-
-            <option value="0">broad</option>
-            <option value="1">narrow</option>
-        </select>
-        <br><br>
-
-        <label>Stalk root&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <select id="stalk-root" name="stalk-root"  required>
-          <option value="" selected disabled hidden>Select&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-
-            <option value="0">missing</option>
-            <option value="1">bulbous</option>
-            <option value="2">club</option>
-            <option value="3">equal</option>
-            <option value="4">rooted</option>
-        </select>
-        <br><br>
-
-          <label>Bruises &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <select id="bruises" name="bruises"  required>
-          <option value="" selected disabled hidden> Select&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </option>
-
-            <option value="1">Yes</option>
-            <option value="0">No</option>
-
-        </select>
-        <br><br>
-
-        <label> Stalk shape &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <select id="stalk-shape" name="stalk-shape"  required>
-          <option value="" selected disabled hidden> Select </option>
-
-            <option value="0">enlarging</option>
-            <option value="1">tapering</option>
-
-        </select>
-        <br>
-
-
-   <center><br><br>
-       <a href="./"> <img src="{{url_for('static', filename='/mushroom.gif')}}"  width="40"  height="50" class="responsive"align="middle"></a>
-       <br>
-
-       <button id="login-button"class="button" style="vertical-align:middle"><span>PREDICT</span></button></center>
-                <br><br>
-                    </center>
-                </fieldset>
-                <br>
-                <h2 style="color: #110601  "><center> {{result}} </center></h2>
-                <br>
-                <a href="/"><p style="color:black"  align="middle"><b>Reset</b></p></a>
-                <br>
-
-
-
-        </form>
-
-            </div>
-
-
-
-    </section>
-
-    <section class="github">
-        <a href="https://github.com/malek1412/Mushroom-project"><button class="btn btn-git">GITHUB</button></a>
-    </section>
-
+          
+          <label for="purpose">Purpose:</label>
+          <select id="purpose" name="purpose" required>
+            <option value="" selected disabled>Select Purpose</option>
+            <option value="A40">car (new)</option>
+            <option value="A41">car (used)</option>
+            <option value="A42">furniture/equipment</option>
+            <option value="A43">radio/television</option>
+            <option value="A44">domestic appliances</option>
+            <option value="A45">repairs</option>
+            <option value="A46">education</option>
+            <option value="A47">vacation - does not exist?</option>
+            <option value="A48">retraining</option>
+            <option value="A49">business</option>
+            <option value="A410">others</option>
+          </select>
+          
+          <label for="credit_amount">Credit Amount:</label>
+          <input type="number" id="credit_amount" name="credit_amount" required>
+          
+          <label for="savings_account">Savings Account/Bonds:</label>
+          <select id="savings_account" name="savings_account" required>
+            <option value="" selected disabled>Select Savings Account/Bonds</option>
+            <option value="A61">... < 100 DM</option>
+            <option value="A62">100 <= ... < 500 DM</option>
+            <option value="A63">500 <= ... < 1000 DM</option>
+            <option value="A64">.. >= 1000 DM</option>
+            <option value="A65">unknown/none</option>
+          </select>
+        </div>
+        <div class="form-column">
+          <label for="employment_since">Present Employment Since:</label>
+          <select id="employment_since" name="employment_since" required>
+            <option value="" selected disabled>Select Present Employment Since</option>
+            <option value="A71">unemployed</option>
+            <option value="A72">... < 1 year</option>
+            <option value="A73">1 <= ... < 4 years</option>
+            <option value="A74">4 <= ... < 7 years</option>
+            <option value="A75">.. >= 7 years</option>
+          </select>
+          
+          <label for="personal_status">Personal Status and Sex:</label>
+          <select id="personal_status" name="personal_status" required>
+            <option value="" selected disabled>Select Personal Status and Sex</option>
+            <option value="A91">male : divorced/separated</option>
+            <option value="A92">female : divorced/separated/married</option>
+            <option value="A93">male : single</option>
+            <option value="A94">male : married/widowed</option>
+            <option value="A95">female : single</option>
+          </select>
+          
+          <label for="age">Age (years):</label>
+          <input type="number" id="age" name="age" required>
+          
+          <label for="existing_credits">Number of Existing Credits at this Bank:</label>
+          <input type="number" id="existing_credits" name="existing_credits" required>
+          
+          <label for="foreign_worker">Foreign Worker:</label>
+          <select id="foreign_worker" name="foreign_worker" required>
+            <option value="" selected disabled>Select Foreign Worker</option>
+            <option value="A201">yes</option>
+            <option value="A202">no</option>
+          </select>
+        </div>
+      </div>
+      <input type="submit" value="Submit Application">
+    </form>
   </div>
-
-
 </body>
 
 </html>
